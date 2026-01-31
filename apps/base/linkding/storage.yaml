@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim  # <--- Changed from PersistentVolume
+metadata:
+  name: linkding-data-pvc      # typically ends in -pvc
+spec:
+  accessModes:
+    - ReadWriteOnce          # "I need a drive that locks to one node"
+  resources:                 # <--- VALID now! (PVs use 'capacity')
+    requests:
+      storage: 1Gi         # "I need at least 500Mi of space"
+  # storageClassName: local-path # This is the default for Rancher Desktop/k3s.
+  storageClassName: local-path # <--- CHANGED: Minikube's default class name Use 'standard' for most managed k8s services
