@@ -12,6 +12,8 @@ spec:
       labels:
         app: fleetmindai
     spec:
+      imagePullSecrets:
+        - name: ghcr-creds
       containers:
         - name: fleetmindai
           image: ghcr.io/endiesworld/fleetmindai:v0.1.0
@@ -29,4 +31,3 @@ spec:
               port: 8080
             initialDelaySeconds: 15
             periodSeconds: 20
-
