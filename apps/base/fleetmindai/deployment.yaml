@@ -15,7 +15,6 @@ spec:
       containers:
         - name: fleetmindai
           image: ghcr.io/endiesworld/fleetmindai:v0.1.0
-          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           readinessProbe:
