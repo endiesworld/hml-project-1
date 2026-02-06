@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudflared
+  namespace: cloudflared
 spec:
   selector:
     matchLabels:
@@ -64,6 +65,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloudflared
+  namespace: cloudflared
 data:
   config.yaml: |
     # Name of the tunnel you want to run
@@ -78,7 +80,9 @@ data:
 
     ingress:
     - hostname: ebkm.emmanuelokoro.net
-      service: http://linkding:9090
+      service: http://linkding.linkding.svc.cluster.local:9090
+    - hostname: fleetmindai.bestant.uk
+      service: http://fleetmindai.fleetmindai.svc.cluster.local:8080
 
     # This rule sends traffic to the built-in hello-world HTTP server. This can help debug connectivity
     # issues. If hello.example.com resolves and tunnel.example.com does not, then the problem is

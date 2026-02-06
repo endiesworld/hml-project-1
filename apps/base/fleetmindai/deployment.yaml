@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fleetmindai
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fleetmindai
+  template:
+    metadata:
+      labels:
+        app: fleetmindai
+    spec:
+      containers:
+        - name: fleetmindai
+          image: ghcr.io/endiesworld/fleetmindai:v0.1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+

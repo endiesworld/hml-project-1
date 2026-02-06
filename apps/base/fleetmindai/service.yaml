@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetmindai
+spec:
+  ports:
+    - port: 8080
+  selector:
+    app: fleetmindai
+  type: ClusterIP
