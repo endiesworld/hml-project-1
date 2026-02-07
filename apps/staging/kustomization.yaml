@@ -4,4 +4,3 @@ resources:
   - ./linkding
   - ./fleetmindai
   - ./cloudflared
-  - test-secret.enc.yaml
