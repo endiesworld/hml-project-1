@@ -7,6 +7,10 @@ spec:
   interval: 1m0s
   path: ./apps/staging
   prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   retryInterval: 2m0s
   sourceRef:
     kind: GitRepository
