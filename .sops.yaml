@@ -1,4 +1,4 @@
 creation_rules:
-  - path_regex: '.*\.enc\.yaml$' 
-    encrypted_regex: '^(data|stringData)$' 
-    age: age10909nkppr57y68wrcvns3xusfjv5pghtfk9v2kuh7zgv3nun74hqecr74v
+  - path_regex: '(^|.*/)tunnel-credentials\.ya?ml$'
+    encrypted_regex: '^(data|stringData)$'
+    age: 'age10909nkppr57y68wrcvns3xusfjv5pghtfk9v2kuh7zgv3nun74hqecr74v'
