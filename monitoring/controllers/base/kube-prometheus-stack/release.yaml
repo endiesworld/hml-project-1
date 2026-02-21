@@ -31,3 +31,10 @@ spec:
   values:
     grafana:
       adminPassword: endy
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        hosts:
+          - sochi-grafana.bestant.uk
+        path: /
+        pathType: Prefix
