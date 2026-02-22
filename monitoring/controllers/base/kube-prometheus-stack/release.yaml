@@ -38,3 +38,10 @@ spec:
           - sochi-grafana.bestant.uk
         path: /
         pathType: Prefix
+        ## TLS configuration for grafana Ingress
+        ## Secret must be manually created in the namespace
+        ##
+        tls: 
+        - secretName: grafana-tls-secret
+          hosts:
+          - sochi-grafana.bestant.uk
