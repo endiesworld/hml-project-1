@@ -22,8 +22,8 @@ spec:
           ports:
             - containerPort: 3005 # For documentation/metedata purpose only
           envFrom:
-        - configMapRef:
-            name: abs-configmap
+          - configMapRef:
+              name: abs-configmap
           volumeMounts:
             - name: audiobooks
               mountPath: /audiobooks
