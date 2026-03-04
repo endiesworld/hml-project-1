@@ -4,8 +4,8 @@ metadata:
   name: audiobookshelf
 spec:
   ports:
-    - port: 13378
-      targetPort: 3005
+    - port: 3005 # Can be any valid port value, but this is your entry port from outside
+      targetPort: 3005 # Must match the runtime port value for the container.
   selector:
     app: audiobookshelf
   type: ClusterIP
