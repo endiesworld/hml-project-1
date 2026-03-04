@@ -20,7 +20,10 @@ spec:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:2.32.1
           ports:
-            - containerPort: 80
+            - containerPort: 3005 # For documentation/metedata purpose only
+          envFrom:
+        - configMapRef:
+            name: abs-configmap
           volumeMounts:
             - name: audiobooks
               mountPath: /audiobooks
