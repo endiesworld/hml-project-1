@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audiobookshelf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: audiobookshelf
+  template:
+    metadata:
+      labels:
+        app: audiobookshelf
+    spec:
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+        runAsGroup: 1000
+      containers:
+        - name: audiobookshelf
+          image: ghcr.io/advplyr/audiobookshelf:v2.32.1
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: audiobooks
+              mountPath: /audiobooks
+            - name: podcasts
+              mountPath: /podcasts
+            - name: metadata
+              mountPath: /metadata
+            - name: config
+              mountPath: /config
+      volumes:
+        - name: audiobooks
+          persistentVolumeClaim:
+            claimName: abs-audiobooks-pvc
+        - name: podcasts
+          persistentVolumeClaim:
+            claimName: abs-podcasts-pvc
+        - name: metadata
+          persistentVolumeClaim:
+            claimName: abs-metadata-pvc
+        - name: config
+          persistentVolumeClaim:
+            claimName: abs-config-pvc
