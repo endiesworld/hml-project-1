@@ -83,6 +83,8 @@ data:
       service: http://linkding.linkding.svc.cluster.local:9090
     - hostname: fleetmindai.bestant.uk
       service: http://fleetmindai.fleetmindai.svc.cluster.local:8080
+    - hostname: audiobks.emmanuelokoro.net
+      service: http://audiobookshelf.audiobookshelf.svc.cluster.local:3005
 
     # This rule sends traffic to the built-in hello-world HTTP server. This can help debug connectivity
     # issues. If hello.example.com resolves and tunnel.example.com does not, then the problem is
